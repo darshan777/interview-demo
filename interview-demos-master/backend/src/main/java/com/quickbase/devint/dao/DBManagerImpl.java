@@ -1,4 +1,6 @@
-package com.quickbase.devint;
+package com.quickbase.devint.dao;
+
+import com.quickbase.devint.dao.DBManager;
 
 import java.sql.*;
 
