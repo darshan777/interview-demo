@@ -1,8 +1,9 @@
-package com.quickbase.devint.dao;
+package com.quickbase.devint.dao.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.quickbase.devint.dao.IStatService;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 

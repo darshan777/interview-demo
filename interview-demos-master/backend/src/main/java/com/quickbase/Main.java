@@ -1,7 +1,7 @@
 package com.quickbase;
 
 import com.quickbase.devint.dao.DBManager;
-import com.quickbase.devint.dao.DBManagerImpl;
+import com.quickbase.devint.dao.Impl.DBManagerImpl;
 
 import java.sql.Connection;
 
@@ -21,6 +21,7 @@ public class Main {
             System.out.println("failed.");
             System.exit(1);
         }
+        ((DBManagerImpl) dbm).getAllData();
 
     }
 }
