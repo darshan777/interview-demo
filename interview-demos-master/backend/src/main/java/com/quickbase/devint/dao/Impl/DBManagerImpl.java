@@ -4,6 +4,8 @@ import com.quickbase.devint.dao.DBManager;
 
 import java.sql.*;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This DBManager implementation provides a connection to the database containing population data.
@@ -11,19 +13,23 @@ import java.util.TreeMap;
  * Created by ckeswani on 9/16/15.
  */
 public class DBManagerImpl implements DBManager {
+    private final static Logger LOGGER = Logger.getLogger(DBManagerImpl.class.getName());
     public Connection getConnection() {
         Connection c = null;
         Statement stmt = null;
         try {
+            LOGGER.info("Opening Database connection");
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:resources/data/citystatecountry.db");
-            System.out.println("Opened database successfully");
-
+            LOGGER.info("Database Connection opened Successfully");
         } catch (ClassNotFoundException cnf) {
+            LOGGER.log(Level.SEVERE,"Could not Load Driver");
             System.out.println("could not load driver");
         } catch (SQLException sqle) {
+            LOGGER.log(Level.SEVERE,"Sql Exeption has occured" );
             System.out.println("sql exception:" + sqle.getStackTrace());
         }
+
         return c;
     }
     //TODO: Add a method (signature of your choosing) to query the db for population data by country
@@ -34,6 +40,7 @@ public class DBManagerImpl implements DBManager {
      * Key of TreeMap is Country Name, Value is total population
      */
     public TreeMap<String, Integer> getAllData(){
+        LOGGER.info("Getting all data from database");
         TreeMap<String, Integer> data= new TreeMap<>();
         try {
             Connection c = getConnection();
@@ -52,14 +59,15 @@ public class DBManagerImpl implements DBManager {
                     data.put(rs.getString("CountryName"), rs.getInt("Population"));
                 }
             }
-            System.out.println(data);
+            LOGGER.info("Connection Closed");
             c.close();
-            System.out.println("Connection is closed");
+
         }
         catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
+            LOGGER.log(Level.SEVERE, e.getMessage() );
+
         }
+        LOGGER.info("Data Fetched from database");
         return data;
     }
 }

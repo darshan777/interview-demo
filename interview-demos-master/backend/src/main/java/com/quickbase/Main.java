@@ -8,6 +8,8 @@ import com.quickbase.devint.service.Impl.MergeDataImpl;
 import java.sql.Connection;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
 import java.util.logging.Logger;
 
 /**
@@ -16,22 +18,24 @@ import java.util.logging.Logger;
  * to demonstrate in a different way (e.g. if you're using a framework)
  */
 public class Main {
+    private final static Logger LOGGER = Logger.getLogger(DBManagerImpl.class.getName());
+
     public static void main( String args[] ) {
-        System.out.println("Starting.");
-        System.out.print("Getting DB Connection...");
-
+        LOGGER.info("Starting Application");
         DBManager dbm = new DBManagerImpl();
-        Connection c = dbm.getConnection();
-        if (null == c ) {
-            System.out.println("failed.");
-            System.exit(1);
-        }
-        MergeData mergeData = new MergeDataImpl();
-        TreeMap<String, Integer> MergedDataList = mergeData.getMergedData();
 
-        for(Map.Entry<String, Integer> data : MergedDataList.entrySet()){
+        MergeData mergeData = new MergeDataImpl();
+        TreeMap<String, Integer> mergedDataList = mergeData.getMergedData();
+        printOutput(mergedDataList);
+    }
+
+    /**
+     *
+     * @param mergedDataList
+     */
+    public  static void printOutput(TreeMap<String, Integer> mergedDataList){
+        for(Map.Entry<String, Integer> data : mergedDataList.entrySet()){
             System.out.println(data.getKey()+" : "+data.getValue());
         }
-
     }
 }

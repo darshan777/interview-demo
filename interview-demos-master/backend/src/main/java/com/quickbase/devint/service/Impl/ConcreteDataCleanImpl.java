@@ -9,13 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.logging.Logger;
 
 
 /**
  * Created by Darshan
  */
 public class ConcreteDataCleanImpl implements ConcreteDataClean {
-
+    private final static Logger LOGGER = Logger.getLogger(ConcreteDataCleanImpl.class.getName());
     /**
      *
      * @return A TreeMap with Cleaned Data from Concreted data
@@ -24,6 +25,7 @@ public class ConcreteDataCleanImpl implements ConcreteDataClean {
      */
     @Override
     public TreeMap<String, Integer> cleanConcreteData(){
+        LOGGER.info("Cleaning ConcreteData from API");
         TreeMap<String,Integer> CoutryPopulationListConcrete = new TreeMap<>();
         IStatService iStatService = new ConcreteStatService();
         List<Pair<String, Integer>> CoutryPopulationList = iStatService.GetCountryPopulations();
@@ -44,6 +46,7 @@ public class ConcreteDataCleanImpl implements ConcreteDataClean {
             }
 
         }
+        LOGGER.info("Concrete Data from API cleaned successfully");
         return CoutryPopulationListConcrete;
     }
 }

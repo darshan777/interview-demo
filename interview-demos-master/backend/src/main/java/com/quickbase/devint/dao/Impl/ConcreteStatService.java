@@ -2,18 +2,21 @@ package com.quickbase.devint.dao.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.quickbase.devint.dao.IStatService;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class ConcreteStatService implements IStatService {
-
+	private final static Logger LOGGER = Logger.getLogger(ConcreteStatService.class.getName());
 	@Override
 	/**
 	 * Returns an unordered list of countries and their populations
 	 */
 	public List<Pair<String, Integer>> GetCountryPopulations() {
+		LOGGER.info("Making REST call to fetch Data");
+
 		List<Pair<String, Integer>> output = new ArrayList<Pair<String, Integer>>();
 		
 		// Pretend this calls a REST API somewhere
@@ -45,6 +48,7 @@ public class ConcreteStatService implements IStatService {
 		output.add(new ImmutablePair<String, Integer>("Kyrgyzstan",5418300));
 		output.add(new ImmutablePair<String, Integer>("Lithuania",3329039));
 		output.add(new ImmutablePair<String, Integer>("United States of America",309349689));
+        LOGGER.info("Data fetched successfully from API");
 		return output;
 	}
 

@@ -22,6 +22,7 @@ public class MergeDataImpl implements MergeData {
      */
     @Override
     public TreeMap<String, Integer> getMergedData(){
+        LOGGER.info("Merging Data of Database and ConcreteClass");
         DBManager dbm = new DBManagerImpl();
         Connection c = dbm.getConnection();
         ConcreteDataClean concreteDataClean = new ConcreteDataCleanImpl();
@@ -35,7 +36,7 @@ public class MergeDataImpl implements MergeData {
                 }
             }
         }
-
+        LOGGER.info("Merging of Data Completed");
         return mergedDataList;
 
     }
