@@ -23,10 +23,20 @@ public class Main {
     public static void main( String args[] ) {
         LOGGER.info("Starting Application");
         DBManager dbm = new DBManagerImpl();
+        try {
+            Connection c = dbm.getConnection();
+            if (null == c) {
+                System.out.println("failed.");
+                System.exit(1);
+            }
+            c.close();
+        }catch (Exception e){
+            System.out.println(e);
+        }
         MergeData mergeData = new MergeDataImpl();
         TreeMap<String, Integer> mergedDataList = mergeData.getMergedData();
         if(mergedDataList!=null) {
-            printOutput(mergedDataList);
+            PrintOutput(mergedDataList);
         }
         else{
             System.out.println("EmptyList returned");
@@ -37,7 +47,7 @@ public class Main {
      * Display all the Elements in mergeDataList
      * @param mergedDataList
      */
-    public  static void printOutput(TreeMap<String, Integer> mergedDataList){
+    public  static void PrintOutput(TreeMap<String, Integer> mergedDataList){
         for(Map.Entry<String, Integer> data : mergedDataList.entrySet()){
             System.out.println(data.getKey()+" : "+data.getValue());
         }
