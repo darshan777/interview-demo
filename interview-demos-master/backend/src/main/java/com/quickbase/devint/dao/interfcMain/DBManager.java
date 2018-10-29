@@ -1,4 +1,4 @@
-package com.quickbase.devint.dao;
+package com.quickbase.devint.dao.interfcMain;
 
 import java.sql.Connection;
 

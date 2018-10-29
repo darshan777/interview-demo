@@ -1,9 +1,8 @@
 package com.quickbase.devint.service;
 
 import com.quickbase.devint.service.Impl.MergeDataImpl;
-import com.quickbase.devint.service.MergeData;
+import com.quickbase.devint.service.interfcMain.MergeData;
 import junit.framework.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.TreeMap;

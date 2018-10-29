@@ -1,6 +1,7 @@
 package com.quickbase.devint.service;
 
 import com.quickbase.devint.service.Impl.ConcreteDataCleanImpl;
+import com.quickbase.devint.service.interfcMain.ConcreteDataClean;
 import junit.framework.Assert;
 
 import org.junit.Test;

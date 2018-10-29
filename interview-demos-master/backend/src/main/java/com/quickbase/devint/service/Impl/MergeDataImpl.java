@@ -1,11 +1,11 @@
 package com.quickbase.devint.service.Impl;
 
-import com.quickbase.devint.dao.DBManager;
+import com.quickbase.devint.dao.interfcMain.DBManager;
 import com.quickbase.devint.dao.Impl.DBManagerImpl;
-import com.quickbase.devint.service.ConcreteDataClean;
-import com.quickbase.devint.service.MergeData;
+import com.quickbase.devint.service.interfcMain.ConcreteDataClean;
+import com.quickbase.devint.service.interfcMain.MergeData;
 
-import java.util.logging.ConsoleHandler;
+import java.util.HashMap;
 import java.util.logging.Logger;
 import java.sql.Connection;
 import java.util.Map;
@@ -17,16 +17,16 @@ public class MergeDataImpl implements MergeData {
     private final static Logger LOGGER = Logger.getLogger(MergeDataImpl.class.getName());
     /**
      *
-     * @return TreeMap with merged data from database and concrete class
+     * @return Hashmap with merged data from database and concrete class
      */
     @Override
-    public TreeMap<String, Integer> getMergedData() {
+    public HashMap<String, Integer> getMergedData() {
         LOGGER.fine("Merging Data of Database and ConcreteClass");
         DBManager dbm = new DBManagerImpl();
         Connection c = dbm.getConnection();
         ConcreteDataClean concreteDataClean = new ConcreteDataCleanImpl();
-        TreeMap<String, Integer> coutryPopulationList = concreteDataClean.cleanConcreteData();
-        TreeMap<String, Integer> mergedDataList = ((DBManagerImpl) dbm).getAllData();
+        HashMap<String, Integer> coutryPopulationList = concreteDataClean.cleanConcreteData();
+        HashMap<String, Integer> mergedDataList = ((DBManagerImpl) dbm).getAllData();
         //Iterating over countrypopulationlist and mergedDataList to find possible duplicates
         if (mergedDataList != null) {
             for (Map.Entry<String, Integer> pair : coutryPopulationList.entrySet()) {

@@ -1,10 +1,10 @@
 package com.quickbase.devint.dao.Impl;
 
-import com.quickbase.devint.dao.DBManager;
+import com.quickbase.devint.dao.interfcMain.DBManager;
 
 import java.sql.*;
+import java.util.HashMap;
 import java.util.TreeMap;
-import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,9 +39,9 @@ public class DBManagerImpl implements DBManager {
      * @return A TreeMap with data fetched from database
      * Key of TreeMap is Country Name, Value is total population
      */
-    public TreeMap<String, Integer> getAllData(){
+    public HashMap<String, Integer> getAllData(){
         LOGGER.fine("Getting all data from database");
-        TreeMap<String, Integer> data= new TreeMap<>();
+        HashMap<String, Integer> data= new HashMap<>();
         try {
             Connection c = getConnection();
             String query = "select country.countryName, sum(city.population) as population " +

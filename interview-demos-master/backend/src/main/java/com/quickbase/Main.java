@@ -1,16 +1,14 @@
 package com.quickbase;
 
-import com.quickbase.devint.dao.DBManager;
+import com.quickbase.devint.dao.interfcMain.DBManager;
 import com.quickbase.devint.dao.Impl.DBManagerImpl;
-import com.quickbase.devint.service.MergeData;
+import com.quickbase.devint.service.interfcMain.MergeData;
 import com.quickbase.devint.service.Impl.MergeDataImpl;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
 import java.util.logging.Logger;
 
 /**
@@ -34,9 +32,11 @@ public class Main {
             System.out.println(e);
         }
         MergeData mergeData = new MergeDataImpl();
-        TreeMap<String, Integer> mergedDataList = mergeData.getMergedData();
+        HashMap<String, Integer> mergedDataList = mergeData.getMergedData();
         if(mergedDataList!=null) {
-            PrintOutput(mergedDataList);
+              PrintOutput(mergedDataList);
+         //   PrintOutputSorted(mergedDataList);
+            LOGGER.info("Application Ended Successfully");
         }
         else{
             System.out.println("EmptyList returned");
@@ -47,9 +47,24 @@ public class Main {
      * Display all the Elements in mergeDataList
      * @param mergedDataList
      */
-    public  static void PrintOutput(TreeMap<String, Integer> mergedDataList){
+    public  static void PrintOutput(HashMap<String, Integer> mergedDataList){
         for(Map.Entry<String, Integer> data : mergedDataList.entrySet()){
             System.out.println(data.getKey()+" : "+data.getValue());
+        }
+
+    }
+
+    /**
+     * Display all the Elements in mergeDataList in sorted form
+     * @param mergedDataList
+     */
+    public  static void PrintOutputSorted(HashMap<String, Integer> mergedDataList) {
+        TreeMap<String, Integer> mergedDataListSorted = new TreeMap<>();
+        for (Map.Entry<String, Integer> data : mergedDataList.entrySet()) {
+            mergedDataListSorted.put(data.getKey(),data.getValue());
+        }
+        for (Map.Entry<String, Integer> dataSorted : mergedDataListSorted.entrySet()) {
+            System.out.println(dataSorted.getKey() + " : " + dataSorted.getValue());
         }
     }
 }
