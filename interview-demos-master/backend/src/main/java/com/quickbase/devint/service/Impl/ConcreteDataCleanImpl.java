@@ -25,28 +25,29 @@ public class ConcreteDataCleanImpl implements ConcreteDataClean {
      */
     @Override
     public TreeMap<String, Integer> cleanConcreteData(){
-        LOGGER.info("Cleaning ConcreteData from API");
+        LOGGER.fine("Cleaning ConcreteData from API");
         TreeMap<String,Integer> CoutryPopulationListConcrete = new TreeMap<>();
         IStatService iStatService = new ConcreteStatService();
         List<Pair<String, Integer>> CoutryPopulationList = iStatService.GetCountryPopulations();
         CountryShortCodes countryShortCodes = new CountryShortCodeImpl();
         HashMap<String, String> countryShortCodeList = countryShortCodes.getCountryShortCode();
 
-
-        for (Pair<String, Integer> pair : CoutryPopulationList) {
-            if(pair!=null) {
-                for(Map.Entry<String, String> data : countryShortCodeList.entrySet()){
-                    if(pair.getLeft().equalsIgnoreCase(data.getKey())){
-                        CoutryPopulationListConcrete.put(data.getValue(), pair.getRight());
-                    }
-                    else {
-                        CoutryPopulationListConcrete.put(pair.getLeft(), pair.getRight());
+        if(countryShortCodeList!=null) {
+            for (Pair<String, Integer> pair : CoutryPopulationList) {
+                if (pair != null) {
+                    for (Map.Entry<String, String> data : countryShortCodeList.entrySet()) {
+                        if (pair.getLeft().equalsIgnoreCase(data.getKey())) {
+                            CoutryPopulationListConcrete.put(data.getValue(), pair.getRight());
+                        } else {
+                            CoutryPopulationListConcrete.put(pair.getLeft(), pair.getRight());
+                        }
                     }
                 }
-            }
 
+            }
+            LOGGER.fine("Concrete Data from API cleaned successfully");
+            return CoutryPopulationListConcrete;
         }
-        LOGGER.info("Concrete Data from API cleaned successfully");
-        return CoutryPopulationListConcrete;
+        return null;
     }
 }

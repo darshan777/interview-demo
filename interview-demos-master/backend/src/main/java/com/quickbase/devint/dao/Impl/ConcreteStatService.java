@@ -15,7 +15,7 @@ public class ConcreteStatService implements IStatService {
 	 * Returns an unordered list of countries and their populations
 	 */
 	public List<Pair<String, Integer>> GetCountryPopulations() {
-		LOGGER.info("Making REST call to fetch Data");
+		LOGGER.fine("Making REST call to fetch Data");
 
 		List<Pair<String, Integer>> output = new ArrayList<Pair<String, Integer>>();
 		
@@ -48,7 +48,7 @@ public class ConcreteStatService implements IStatService {
 		output.add(new ImmutablePair<String, Integer>("Kyrgyzstan",5418300));
 		output.add(new ImmutablePair<String, Integer>("Lithuania",3329039));
 		output.add(new ImmutablePair<String, Integer>("United States of America",309349689));
-        LOGGER.info("Data fetched successfully from API");
+        LOGGER.fine("Data fetched successfully from API");
 		return output;
 	}
 

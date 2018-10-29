@@ -4,6 +4,7 @@ import com.quickbase.devint.dao.DBManager;
 
 import java.sql.*;
 import java.util.TreeMap;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,10 +19,10 @@ public class DBManagerImpl implements DBManager {
         Connection c = null;
         Statement stmt = null;
         try {
-            LOGGER.info("Opening Database connection");
+            LOGGER.fine("Opening Database connection");
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:resources/data/citystatecountry.db");
-            LOGGER.info("Database Connection opened Successfully");
+            LOGGER.fine("Database Connection opened Successfully");
         } catch (ClassNotFoundException cnf) {
             LOGGER.log(Level.SEVERE,"Could not Load Driver");
             System.out.println("could not load driver");
@@ -40,7 +41,10 @@ public class DBManagerImpl implements DBManager {
      * Key of TreeMap is Country Name, Value is total population
      */
     public TreeMap<String, Integer> getAllData(){
-        LOGGER.info("Getting all data from database");
+        LOGGER.fine("Getting all data from database");
+        LOGGER.addHandler(new ConsoleHandler(
+
+        ));
         TreeMap<String, Integer> data= new TreeMap<>();
         try {
             Connection c = getConnection();
@@ -58,8 +62,9 @@ public class DBManagerImpl implements DBManager {
                 if(rs!=null){
                     data.put(rs.getString("CountryName"), rs.getInt("Population"));
                 }
+
             }
-            LOGGER.info("Connection Closed");
+            LOGGER.fine("Connection Closed");
             c.close();
 
         }
@@ -67,7 +72,7 @@ public class DBManagerImpl implements DBManager {
             LOGGER.log(Level.SEVERE, e.getMessage() );
 
         }
-        LOGGER.info("Data Fetched from database");
+        LOGGER.fine("Data Fetched from database");
         return data;
     }
 }

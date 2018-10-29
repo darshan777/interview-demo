@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
 
@@ -18,19 +19,26 @@ import java.util.logging.Logger;
  * to demonstrate in a different way (e.g. if you're using a framework)
  */
 public class Main {
-    private final static Logger LOGGER = Logger.getLogger(DBManagerImpl.class.getName());
+    private  static Logger LOGGER = Logger.getLogger(DBManagerImpl.class.getName());
+
 
     public static void main( String args[] ) {
+
         LOGGER.info("Starting Application");
         DBManager dbm = new DBManagerImpl();
 
         MergeData mergeData = new MergeDataImpl();
         TreeMap<String, Integer> mergedDataList = mergeData.getMergedData();
-        printOutput(mergedDataList);
+        if(mergedDataList!=null) {
+            printOutput(mergedDataList);
+        }
+        else{
+            System.out.println("EmptyList returned");
+        }
     }
 
     /**
-     *
+     * Display all the Elements in mergeDataList
      * @param mergedDataList
      */
     public  static void printOutput(TreeMap<String, Integer> mergedDataList){
