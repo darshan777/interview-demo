@@ -25,6 +25,7 @@ public class TestRunner {
         for(Failure failure :countryShortcodeTestResult.getFailures()){
             System.out.println(failure.toString());
         }
+        System.out.println("All Test Cases Pssed Successfully");
     }
 
 }

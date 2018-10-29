@@ -5,15 +5,17 @@ import com.quickbase.devint.service.interfcMain.ConcreteDataClean;
 import junit.framework.Assert;
 
 import org.junit.Test;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+
+import java.util.HashMap;
 import java.util.TreeMap;
+import java.util.logging.Logger;
 
 /**
  * Created by Darshan
  */
 public class ConcreteDataCleanImplTest {
-    private static Logger logger = LogManager.getLogger(ConcreteDataCleanImplTest.class);
+    private final static java.util.logging.Logger LOGGER = Logger.getLogger(ConcreteDataCleanImplTest.class.getName());
     ConcreteDataClean concreteDataClean = new ConcreteDataCleanImpl();
     /**
      * Test case for CleanConcreteData method
@@ -21,8 +23,8 @@ public class ConcreteDataCleanImplTest {
      */
     @Test
     public void  cleanConcreteDataImpl(){
-        TreeMap<String, Integer> concreteDataList= concreteDataClean.cleanConcreteData();
+        HashMap<String, Integer> concreteDataList= concreteDataClean.cleanConcreteData();
         Assert.assertTrue("No Data From Concrete List was returned", concreteDataList.size()>0);
-        logger.info("test Run Successful");
+        LOGGER.fine("cleanConcreteDataImpl Test passed Successfully");
     }
 }

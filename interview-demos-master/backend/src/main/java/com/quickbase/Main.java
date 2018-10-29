@@ -36,13 +36,11 @@ public class Main {
         if(mergedDataList!=null) {
               PrintOutput(mergedDataList);
          //   PrintOutputSorted(mergedDataList);
-            LOGGER.info("Application Ended Successfully");
         }
         else{
             System.out.println("EmptyList returned");
         }
     }
-
     /**
      * Display all the Elements in mergeDataList
      * @param mergedDataList
@@ -51,9 +49,7 @@ public class Main {
         for(Map.Entry<String, Integer> data : mergedDataList.entrySet()){
             System.out.println(data.getKey()+" : "+data.getValue());
         }
-
     }
-
     /**
      * Display all the Elements in mergeDataList in sorted form
      * @param mergedDataList

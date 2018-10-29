@@ -6,14 +6,13 @@ import com.quickbase.devint.service.interfcMain.CountryShortCodes;
 import junit.framework.Assert;
 import org.junit.Test;
 import java.util.HashMap;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
+import java.util.logging.Logger;
 
 /**
  * Created by Darshan
  */
 public class CountryShortCodeImplTest {
-    private static Logger logger = LogManager.getLogger(CountryShortCodeImplTest.class);
+    private final static java.util.logging.Logger LOGGER = Logger.getLogger(CountryShortCodeImplTest.class.getName());
     CountryShortCodes countryShortCodes = new CountryShortCodeImpl();
     /**
      * Test case for GetCountryShortCode method
@@ -23,6 +22,6 @@ public class CountryShortCodeImplTest {
     public void  getCountryShortCodeTest(){
         HashMap<String, String> countryShortCodeList = countryShortCodes.getCountryShortCode();
         Assert.assertTrue("No ShortCode Present in the List", countryShortCodeList.size()>0);
-        logger.info("test Run Successful");
+        LOGGER.fine("getCountryShortCodeTest Test passed Successfully");
     }
 }
