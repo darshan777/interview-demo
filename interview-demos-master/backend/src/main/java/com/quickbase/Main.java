@@ -2,8 +2,13 @@ package com.quickbase;
 
 import com.quickbase.devint.dao.DBManager;
 import com.quickbase.devint.dao.Impl.DBManagerImpl;
+import com.quickbase.devint.service.MergeData;
+import com.quickbase.devint.service.Impl.MergeDataImpl;
 
 import java.sql.Connection;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.logging.Logger;
 
 /**
  * The main method of the executable JAR generated from this repository. This is to let you
@@ -21,7 +26,12 @@ public class Main {
             System.out.println("failed.");
             System.exit(1);
         }
-        ((DBManagerImpl) dbm).getAllData();
+        MergeData mergeData = new MergeDataImpl();
+        TreeMap<String, Integer> MergedDataList = mergeData.getMergedData();
+
+        for(Map.Entry<String, Integer> data : MergedDataList.entrySet()){
+            System.out.println(data.getKey()+" : "+data.getValue());
+        }
 
     }
 }
