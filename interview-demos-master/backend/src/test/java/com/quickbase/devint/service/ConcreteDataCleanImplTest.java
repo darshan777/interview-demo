@@ -13,6 +13,8 @@ public class ConcreteDataCleanImplTest {
 
     ConcreteDataClean concreteDataClean = new ConcreteDataCleanImpl();
 
+
+    
     @Test
     public void  cleanConcreteDataImpl(){
         TreeMap<String, Integer> concreteDataList= concreteDataClean.cleanConcreteData();
