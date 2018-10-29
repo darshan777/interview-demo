@@ -13,23 +13,18 @@ public class TestRunner {
         Result mergeDataTestResult = JUnitCore.runClasses(MergeDataImplTest.class);
         Result concreteDataCleanTestResult = JUnitCore.runClasses(ConcreteDataCleanImplTest.class);
         Result countryShortcodeTestResult = JUnitCore.runClasses(ConcreteDataCleanImplTest.class);
-
         //Check all failed test in MergedataTest
         for(Failure failure :mergeDataTestResult.getFailures()){
          System.out.println(failure.toString());
         }
-
         //Check all failed test in ConcreteDataTest
         for(Failure failure :concreteDataCleanTestResult.getFailures()){
             System.out.println(failure.toString());
         }
-
         //Check all failed test in CountryShortCodeTest
         for(Failure failure :countryShortcodeTestResult.getFailures()){
             System.out.println(failure.toString());
         }
-
-
     }
 
 }

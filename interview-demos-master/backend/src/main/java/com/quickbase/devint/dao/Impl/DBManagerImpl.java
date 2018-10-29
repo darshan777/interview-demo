@@ -34,21 +34,16 @@ public class DBManagerImpl implements DBManager {
         return c;
     }
     //TODO: Add a method (signature of your choosing) to query the db for population data by country
-
     /**
-     * @param
+     *
      * @return A TreeMap with data fetched from database
      * Key of TreeMap is Country Name, Value is total population
      */
     public TreeMap<String, Integer> getAllData(){
         LOGGER.fine("Getting all data from database");
-        LOGGER.addHandler(new ConsoleHandler(
-
-        ));
         TreeMap<String, Integer> data= new TreeMap<>();
         try {
             Connection c = getConnection();
-
             String query = "select country.countryName, sum(city.population) as population " +
                     "from country " +
                     "left join " +
@@ -58,19 +53,17 @@ public class DBManagerImpl implements DBManager {
                     "Group BY Country.CountryName";
             Statement stmn = c.createStatement();
             ResultSet rs = stmn.executeQuery(query);
+            //Storing value from Database to TreeMap
             while(rs.next()){
                 if(rs!=null){
                     data.put(rs.getString("CountryName"), rs.getInt("Population"));
                 }
-
             }
             LOGGER.fine("Connection Closed");
             c.close();
-
         }
         catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getMessage() );
-
         }
         LOGGER.fine("Data Fetched from database");
         return data;

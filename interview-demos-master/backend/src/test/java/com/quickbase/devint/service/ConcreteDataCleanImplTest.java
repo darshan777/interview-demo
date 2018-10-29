@@ -14,8 +14,6 @@ import java.util.TreeMap;
 public class ConcreteDataCleanImplTest {
     private static Logger logger = LogManager.getLogger(ConcreteDataCleanImplTest.class);
     ConcreteDataClean concreteDataClean = new ConcreteDataCleanImpl();
-
-
     /**
      * Test case for CleanConcreteData method
      * Test will fail if Map does not contain more than one element

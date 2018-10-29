@@ -20,13 +20,9 @@ import java.util.logging.Logger;
  */
 public class Main {
     private  static Logger LOGGER = Logger.getLogger(DBManagerImpl.class.getName());
-
-
     public static void main( String args[] ) {
-
         LOGGER.info("Starting Application");
         DBManager dbm = new DBManagerImpl();
-
         MergeData mergeData = new MergeDataImpl();
         TreeMap<String, Integer> mergedDataList = mergeData.getMergedData();
         if(mergedDataList!=null) {

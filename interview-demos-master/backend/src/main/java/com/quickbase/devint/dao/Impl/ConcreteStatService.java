@@ -51,5 +51,4 @@ public class ConcreteStatService implements IStatService {
         LOGGER.fine("Data fetched successfully from API");
 		return output;
 	}
-
 }

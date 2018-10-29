@@ -15,9 +15,7 @@ import org.apache.logging.log4j.LogManager;
  */
 public class MergeDataImplTest {
     private static Logger logger = LogManager.getLogger(MergeDataImplTest.class);
-
     MergeData mergeData = new MergeDataImpl();
-
     /**
      * Test case for GetMergedData method
      * Test will fail if Map does not contain more than one element

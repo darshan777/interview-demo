@@ -8,14 +8,12 @@ import java.util.HashMap;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-
 /**
  * Created by Darshan
  */
 public class CountryShortCodeImplTest {
     private static Logger logger = LogManager.getLogger(CountryShortCodeImplTest.class);
     CountryShortCodes countryShortCodes = new CountryShortCodeImpl();
-
     /**
      * Test case for GetCountryShortCode method
      * Test will fail if Map does not contain more than one element

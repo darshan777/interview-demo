@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
-
-
 /**
  * Created by Darshan
  */
@@ -31,7 +29,8 @@ public class ConcreteDataCleanImpl implements ConcreteDataClean {
         List<Pair<String, Integer>> CoutryPopulationList = iStatService.GetCountryPopulations();
         CountryShortCodes countryShortCodes = new CountryShortCodeImpl();
         HashMap<String, String> countryShortCodeList = countryShortCodes.getCountryShortCode();
-
+        //Iterating over CoutryPopulationList and again iterating over countryShortCodeList
+        //to find and replace if any matches found
         if(countryShortCodeList!=null) {
             for (Pair<String, Integer> pair : CoutryPopulationList) {
                 if (pair != null) {

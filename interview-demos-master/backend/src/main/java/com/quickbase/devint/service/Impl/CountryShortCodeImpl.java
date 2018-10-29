@@ -4,8 +4,6 @@ import com.quickbase.devint.exception.AppException;
 import com.quickbase.devint.service.CountryShortCodes;
 import java.util.HashMap;
 import java.util.logging.Logger;
-
-
 /**
  * Created by Darshan
  */
@@ -18,6 +16,7 @@ public class CountryShortCodeImpl  implements CountryShortCodes {
     @Override
     public HashMap<String, String> getCountryShortCode() {
         LOGGER.fine("Fetching country Shortcodes fro map");
+        //Adding shortcodes to countryShortcodeList
         HashMap<String, String> CountryShortCodeList = new HashMap<>();
         CountryShortCodeList.put("United States of America", "U.S.A.");
         LOGGER.fine("Country Shortcodes Fetched Successfully");
