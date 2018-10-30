@@ -1,0 +1,28 @@
+package com.quickbase.devint.service.Impl;
+
+import com.quickbase.devint.exception.AppException;
+import com.quickbase.devint.service.interfcMain.CountryShortCodes;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+
+import java.util.HashMap;
+import java.util.TreeSet;
+import java.util.logging.Logger;
+/**
+ * Created by Darshan
+ */
+public class CountryShortCodeImpl  implements CountryShortCodes {
+    private final static Logger LOGGER = Logger.getLogger(CountryShortCodeImpl.class.getName());
+    /**
+     *
+     * @return Returns a Map of Country and its ShortCode
+     */
+    @Override
+    public HashMap<String, String> getCountryShortCode() {
+        LOGGER.info("Fetching country Shortcodes fro map");
+        //Adding shortcodes to countryShortcodeList
+        HashMap<String, String> CountryShortCodeList = new HashMap<>();
+        CountryShortCodeList.put("United States of America", "U.S.A.");
+        LOGGER.info("Country Shortcodes Fetched Successfully");
+        return CountryShortCodeList;
+    }
+}
