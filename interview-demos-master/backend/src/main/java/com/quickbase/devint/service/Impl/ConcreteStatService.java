@@ -1,10 +1,10 @@
-package com.quickbase.devint.dao.Impl;
+package com.quickbase.devint.service.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.quickbase.devint.dao.interfcMain.IStatService;
+import com.quickbase.devint.service.interfcMain.IStatService;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 

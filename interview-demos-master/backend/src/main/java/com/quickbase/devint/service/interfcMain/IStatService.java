@@ -1,4 +1,4 @@
-package com.quickbase.devint.dao.interfcMain;
+package com.quickbase.devint.service.interfcMain;
 
 import java.util.List;
 import org.apache.commons.lang3.tuple.Pair;

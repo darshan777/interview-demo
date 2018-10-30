@@ -18,11 +18,10 @@ import java.util.logging.*;
  * to demonstrate in a different way (e.g. if you're using a framework)
  */
 public class Main {
-    private  static Logger LOGGER = Logger.getLogger(DBManagerImpl.class.getName());
-    public static void main( String args[] ) throws IOException {
-        LOGGER.setUseParentHandlers(false);
-
+    public static void main( String args[] ) {
+        System.out.println("Starting.");
         DBManager dbm = new DBManagerImpl();
+        System.out.println("Getting DB Connection...");
         try {
             Connection c = dbm.getConnection();
             if (null == c) {
