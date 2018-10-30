@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-10-29T21:33:08</date>
+  <millis>1540863188662</millis>
+  <sequence>0</sequence>
+  <logger>com.quickbase.devint.service.Impl</logger>
+  <level>INFO</level>
+  <class>com.quickbase.devint.service.Impl.MergeDataImpl</class>
+  <method>getMergedData</method>
+  <thread>1</thread>
+  <message>Merging Data of Database and ConcreteClass</message>
+</record>
+<record>
+  <date>2018-10-29T21:33:08</date>
+  <millis>1540863188662</millis>
+  <sequence>1</sequence>
+  <logger>com.quickbase.devint.service.Impl.ConcreteDataCleanImpl</logger>
+  <level>INFO</level>
+  <class>com.quickbase.devint.service.Impl.ConcreteDataCleanImpl</class>
+  <method>cleanConcreteData</method>
+  <thread>1</thread>
+  <message>Cleaning ConcreteData from API</message>
+</record>
+<record>
+  <date>2018-10-29T21:33:08</date>
+  <millis>1540863188709</millis>
+  <sequence>2</sequence>
+  <logger>com.quickbase.devint.service.Impl.CountryShortCodeImpl</logger>
+  <level>INFO</level>
+  <class>com.quickbase.devint.service.Impl.CountryShortCodeImpl</class>
+  <method>getCountryShortCode</method>
+  <thread>1</thread>
+  <message>Fetching country Shortcodes fro map</message>
+</record>
+<record>
+  <date>2018-10-29T21:33:08</date>
+  <millis>1540863188709</millis>
+  <sequence>3</sequence>
+  <logger>com.quickbase.devint.service.Impl.CountryShortCodeImpl</logger>
+  <level>INFO</level>
+  <class>com.quickbase.devint.service.Impl.CountryShortCodeImpl</class>
+  <method>getCountryShortCode</method>
+  <thread>1</thread>
+  <message>Country Shortcodes Fetched Successfully</message>
+</record>
+<record>
+  <date>2018-10-29T21:33:08</date>
+  <millis>1540863188709</millis>
+  <sequence>4</sequence>
+  <logger>com.quickbase.devint.service.Impl.ConcreteDataCleanImpl</logger>
+  <level>INFO</level>
+  <class>com.quickbase.devint.service.Impl.ConcreteDataCleanImpl</class>
+  <method>cleanConcreteData</method>
+  <thread>1</thread>
+  <message>Concrete Data from API cleaned successfully</message>
+</record>
+<record>
+  <date>2018-10-29T21:33:08</date>
+  <millis>1540863188800</millis>
+  <sequence>5</sequence>
+  <logger>com.quickbase.devint.service.Impl</logger>
+  <level>INFO</level>
+  <class>com.quickbase.devint.service.Impl.MergeDataImpl</class>
+  <method>getMergedData</method>
+  <thread>1</thread>
+  <message>Merging of Data Completed</message>
+</record>
+</log>

@@ -44,7 +44,7 @@ public class DBManagerImpl implements DBManager {
         HashMap<String, Integer> data= new HashMap<>();
         try {
             Connection c = getConnection();
-            String query = "select country.countryName, sum(city.population) as population " +
+             String query = "select country.countryName, sum(city.population) as population " +
                     "from country " +
                     "left join " +
                     "State on Country.countryId == State.CountryId " +

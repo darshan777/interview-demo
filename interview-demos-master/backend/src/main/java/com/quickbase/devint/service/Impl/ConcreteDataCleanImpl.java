@@ -23,8 +23,8 @@ public class ConcreteDataCleanImpl implements ConcreteDataClean {
      * If the Key is present in Concrete data , it will replace it with Map Value andd Add to HashMap
      */
     @Override
-    public HashMap<String, Integer> cleanConcreteData() throws AppException {
-        LOGGER.fine("Cleaning ConcreteData from API");
+    public HashMap<String, Integer> cleanConcreteData(){
+        LOGGER.info("Cleaning ConcreteData from API");
         try {
             HashMap<String, Integer> CoutryPopulationListConcrete = new HashMap<>();
             IStatService iStatService = new ConcreteStatService();
@@ -45,7 +45,7 @@ public class ConcreteDataCleanImpl implements ConcreteDataClean {
                         }
                     }
                 }
-                LOGGER.fine("Concrete Data from API cleaned successfully");
+                LOGGER.info("Concrete Data from API cleaned successfully");
                 return CoutryPopulationListConcrete;
             }else {
                 throw new AppException("countryShortCodeList is empty");

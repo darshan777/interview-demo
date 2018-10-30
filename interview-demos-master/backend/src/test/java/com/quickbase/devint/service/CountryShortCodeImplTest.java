@@ -22,6 +22,6 @@ public class CountryShortCodeImplTest {
     public void  getCountryShortCodeTest(){
         HashMap<String, String> countryShortCodeList = countryShortCodes.getCountryShortCode();
         Assert.assertTrue("No ShortCode Present in the List", countryShortCodeList.size()>0);
-        LOGGER.fine("getCountryShortCodeTest Test passed Successfully");
+        LOGGER.info("getCountryShortCodeTest Test passed Successfully");
     }
 }

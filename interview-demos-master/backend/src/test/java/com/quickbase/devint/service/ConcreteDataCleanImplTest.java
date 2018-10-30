@@ -25,6 +25,6 @@ public class ConcreteDataCleanImplTest {
     public void  cleanConcreteDataImpl(){
         HashMap<String, Integer> concreteDataList= concreteDataClean.cleanConcreteData();
         Assert.assertTrue("No Data From Concrete List was returned", concreteDataList.size()>0);
-        LOGGER.fine("cleanConcreteDataImpl Test passed Successfully");
+        LOGGER.info("cleanConcreteDataImpl Test passed Successfully");
     }
 }

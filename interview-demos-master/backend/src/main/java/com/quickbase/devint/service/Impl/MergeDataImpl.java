@@ -6,7 +6,11 @@ import com.quickbase.devint.exception.AppException;
 import com.quickbase.devint.service.interfcMain.ConcreteDataClean;
 import com.quickbase.devint.service.interfcMain.MergeData;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Connection;
 import java.util.Map;
@@ -15,15 +19,21 @@ import java.util.TreeMap;
  * Created by Darshan
  */
 public class MergeDataImpl implements MergeData {
-    private final static Logger LOGGER = Logger.getLogger(MergeDataImpl.class.getName());
+    private final static Logger LOGGER = Logger.getLogger("com.quickbase.devint.service.Impl");
+
     /**
      *
      * @return Hashmap with merged data from database and concrete class
      */
     @Override
-    public HashMap<String, Integer> getMergedData() throws AppException {
+    public HashMap<String, Integer> getMergedData(){
+
         try {
-            LOGGER.fine("Merging Data of Database and ConcreteClass");
+            Handler fileHandler  = null;
+            fileHandler  = new FileHandler( "./quickbaseDemoService.log");
+            LOGGER.setUseParentHandlers(false);
+            LOGGER.addHandler(fileHandler);
+            LOGGER.info("Merging Data of Database and ConcreteClass");
             DBManager dbm = new DBManagerImpl();
             Connection c = dbm.getConnection();
             ConcreteDataClean concreteDataClean = new ConcreteDataCleanImpl();
@@ -40,11 +50,13 @@ public class MergeDataImpl implements MergeData {
                         throw  new AppException("MergedDataList map is empty");
                     }
                 }
-                LOGGER.fine("Merging of Data Completed");
+                LOGGER.info("Merging of Data Completed");
                 return mergedDataList;
             }
         }catch (AppException e){
             e.printStackTrace();
+        }catch (IOException e){
+
         }
         return null;
     }

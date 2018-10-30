@@ -5,11 +5,12 @@ import com.quickbase.devint.dao.Impl.DBManagerImpl;
 import com.quickbase.devint.service.interfcMain.MergeData;
 import com.quickbase.devint.service.Impl.MergeDataImpl;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 /**
  * The main method of the executable JAR generated from this repository. This is to let you
@@ -18,8 +19,9 @@ import java.util.logging.Logger;
  */
 public class Main {
     private  static Logger LOGGER = Logger.getLogger(DBManagerImpl.class.getName());
-    public static void main( String args[] ) {
-        LOGGER.info("Starting Application");
+    public static void main( String args[] ) throws IOException {
+        LOGGER.setUseParentHandlers(false);
+
         DBManager dbm = new DBManagerImpl();
         try {
             Connection c = dbm.getConnection();

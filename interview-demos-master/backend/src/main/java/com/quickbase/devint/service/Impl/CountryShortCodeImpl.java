@@ -18,11 +18,11 @@ public class CountryShortCodeImpl  implements CountryShortCodes {
      */
     @Override
     public HashMap<String, String> getCountryShortCode() {
-        LOGGER.fine("Fetching country Shortcodes fro map");
+        LOGGER.info("Fetching country Shortcodes fro map");
         //Adding shortcodes to countryShortcodeList
         HashMap<String, String> CountryShortCodeList = new HashMap<>();
         CountryShortCodeList.put("United States of America", "U.S.A.");
-        LOGGER.fine("Country Shortcodes Fetched Successfully");
+        LOGGER.info("Country Shortcodes Fetched Successfully");
         return CountryShortCodeList;
     }
 }

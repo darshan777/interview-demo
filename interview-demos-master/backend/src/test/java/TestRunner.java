@@ -3,13 +3,21 @@ import com.quickbase.devint.service.MergeDataImplTest;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Logger;
 
 /**
  * Created by Darshan
  */
 public class TestRunner {
-    public static void main(String[] args){
-
+    private final static Logger LOGGER = Logger.getLogger("com.quickbase.devint.service");
+    public static void main(String[] args) throws IOException {
+        Handler fileHandler  = null;
+        fileHandler  = new FileHandler( "./quickbaseDemoServiceTest.log");
+        LOGGER.setUseParentHandlers(false);
+        LOGGER.addHandler(fileHandler);
         Result mergeDataTestResult = JUnitCore.runClasses(MergeDataImplTest.class);
         Result concreteDataCleanTestResult = JUnitCore.runClasses(ConcreteDataCleanImplTest.class);
         Result countryShortcodeTestResult = JUnitCore.runClasses(ConcreteDataCleanImplTest.class);
